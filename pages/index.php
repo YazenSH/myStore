@@ -1,10 +1,10 @@
 <?php 
 include '../includes/header.php';
-// include '../db/connection.php';
+include '../db/connection.php';
 
-// // Fetch only first 3 products
-// $product_query = "SELECT * FROM products ORDER BY product_ID DESC LIMIT 3";
-// $product_result = $conn->query($product_query);
+// Fetch only first 3 products
+$product_query = "SELECT * FROM products ORDER BY product_ID DESC LIMIT 3";
+$product_result = $conn->query($product_query);
 ?>
 
 <!-- Introduction section -->
@@ -42,7 +42,7 @@ include '../includes/header.php';
     </ul>
 </section>
 
-<!-- Featured Products
+<!-- Featured Products -->
 <section class="featured">
     <h2>Featured Products</h2>
     <div class="product-row">
@@ -67,6 +67,6 @@ include '../includes/header.php';
             </div>
         <?php endwhile; ?>
     </div>
-</section> -->
+</section>
 
 <?php include '../includes/footer.php'; ?>
