@@ -47,7 +47,7 @@ $page_titles = [
                     <?php endif; ?>
                     <a href="../php_actions/process_logout.php" class="nav-btn">Log Out</a>
                 <?php else: ?>
-                    <a href="login.php" class="nav-btn">Login</a>
+                    <a href="./pages/login.php" class="nav-btn">Login</a>
                 <?php endif; ?>
             </div>
         </div>
@@ -64,7 +64,7 @@ $page_titles = [
                 <li><a href="./pages/aboutUs.php">About Us</a></li>
                 <li><a href="./pages/contact.php">Contact Us</a></li>
                 <?php if (!isset($_SESSION['user_id'])): ?>
-                    <li><a href="signup.php">Sign Up</a></li>
+                    <li><a href="./pages/signup.php">Sign Up</a></li>
                 <?php endif; ?>
             </ul>
         </nav>
