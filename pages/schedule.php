@@ -43,6 +43,6 @@
     </table>
 </div>
 
-<link rel="stylesheet" href="../print.css" media="print">
+<link rel="stylesheet" href="../print.css" media="print"/>
 
 <?php include '../includes/footer.php'; ?>

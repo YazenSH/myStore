@@ -31,6 +31,7 @@ $page_titles = [
     <title><?php echo $page_titles[$current_page] ?? 'Photography Store'; ?></title>
     <link rel="stylesheet" href="../css/global.css"/>
     <link rel="icon" href="../Images/Logo.png" type="image/png"/>
+    <link rel="stylesheet" href="../css/print.css" media="print"/>
 </head>
 <body>
     <div class="main-header">
