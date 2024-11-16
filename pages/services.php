@@ -3,7 +3,7 @@
 <!-- Main content container -->
 <div class="container">
     <!-- About Us Component -->
-    <section class="service-item">
+    <div class="service-item">
         <div class="service-content">
             <h2>About Us</h2>
             <p>
@@ -13,12 +13,12 @@
             <a href="aboutUs.php" class="btn">Learn More</a>
         </div>
         <div class="service-image">
-            <img src="../Images/about-us.jpg" alt="About Us Image">
+            <img src="../Images/about-us.jpg" alt="About Us Image"/>
         </div>
-    </section>
+</div>
 
     <!-- Contact Us Component -->
-    <section class="service-item">
+    <div class="service-item">
         <div class="service-content">
             <h2>Contact Us</h2>
             <p>
@@ -28,12 +28,12 @@
             <a href="contact.php" class="btn">Get in Touch</a>
         </div>
         <div class="service-image">
-            <img src="../Images/contact-us.jpg" alt="Contact Us Image">
+            <img src="../Images/contact-us.jpg" alt="Contact Us Image"/>
         </div>
-    </section>
+    </div>
 
     <!-- Products Component -->
-    <section class="service-item">
+    <div class="service-item">
         <div class="service-content">
             <h2>Products</h2>
             <p>
@@ -43,12 +43,12 @@
             <a href="products.php" class="btn">Shop Now</a>
         </div>
         <div class="service-image">
-            <img src="../Images/products.jpg" alt="Products Image">
+            <img src="../Images/products.jpg" alt="Products Image"/>
         </div>
-    </section>
+    </div>
 
     <!-- Sign Up Component -->
-    <section class="service-item">
+    <div class="service-item">
         <div class="service-content">
             <h2>Sign up</h2>
             <p>
@@ -57,9 +57,9 @@
             <a href="signup.php" class="btn">Sign Up Now!</a>
         </div>
         <div class="service-image">
-            <img src="../Images/signup.jpg" alt="Sign Up">
+            <img src="../Images/signup.jpg" alt="Sign Up"/>
         </div>
-    </section>
+    </div>
 </div>
 
 <?php include '../includes/footer.php'; ?>

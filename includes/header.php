@@ -51,7 +51,7 @@ $page_titles = [
                 <?php endif; ?>
             </div>
         </div>
-        <nav>
+        <div class="divnav">
             <ul class="navbar">
                 <li><a href="../index.php">Main Page</a></li>
                 <li><a href="services.php">Services</a></li>
@@ -67,7 +67,7 @@ $page_titles = [
                     <li><a href="signup.php">Sign Up</a></li>
                 <?php endif; ?>
             </ul>
-        </nav>
+        </div>
     </div>
     <!-- This will be closed in the start of the footer so everything wraped between header and footer will be in the container -->
     <div class="container">
