@@ -19,7 +19,7 @@ $product_result = $conn->query($product_query);
 
 <div class="container">
     <!-- Admin Management Section -->
-    <section class="admin-section">
+    <div class="admin-section">
         <h2>Admin Management</h2>
         <!-- Form to Add New Admin -->
         <form action="../php_actions/add_admin.php" method="POST" class="admin-form" onsubmit="return validateAdminForm()">
@@ -55,10 +55,10 @@ $product_result = $conn->query($product_query);
                 <?php endwhile; ?>
             </tbody>
         </table>
-    </section>
+                </div>
 
     <!-- Product Management Section -->
-    <section class="admin-section">
+    <div class="admin-section">
         <h2>Product Management</h2>
         <table class="admin-table">
             <thead>
@@ -91,7 +91,7 @@ $product_result = $conn->query($product_query);
                 <?php endwhile; ?>
             </tbody>
         </table>
-    </section>
+        </div>
 </div>
 
 <script src="../js/validation.js" type="text/javascript"></script>
