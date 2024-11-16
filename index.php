@@ -52,7 +52,7 @@ $page_titles = [
                 <?php endif; ?>
             </div>
         </div>
-        <nav>
+        <div class="divnav">
             <ul class="navbar">
                 <li><a href="index.php">Main Page</a></li>
                 <li><a href="./pages/services.php">Services</a></li>
@@ -68,7 +68,7 @@ $page_titles = [
                     <li><a href="./pages/signup.php">Sign Up</a></li>
                 <?php endif; ?>
             </ul>
-        </nav>
+        </div>
     </header>
     <!-- This will be closed in the start of the footer so everything wraped between header and footer will be in the container -->
     <div class="container">
@@ -84,19 +84,20 @@ $product_result = $conn->query($product_query);
 ?>
 
 <!-- Introduction section -->
-<section class="intro-box">
+<div class="intro-box">
     <p>
         At <strong>Photography Store</strong>, we provide the latest and best photography equipment
         to help you capture every moment with precision. Explore our wide range of
         cameras, lenses, tripods, and accessories.
     </p>
     <blockquote>
-        "Photography is the story I fail to put into words."<cite> – Destin Sparks</cite>
-    </blockquote>
-</section>
+    "Photography is the story I fail to put into words."
+    <cite>– Destin Sparks</cite>
+</blockquote>
+</div>
 
 <!-- Problem Definition Section -->
-<section class="problem-definition box">
+<div class="problem-definition box">
     <h2>Problem Definition</h2>
     <p>
         Finding the right photography equipment can be overwhelming due to the wide range of options and lack of
@@ -116,17 +117,17 @@ $product_result = $conn->query($product_query);
         <li>Ensuring that customers can find everything they need, from cameras to tripods, in one place.</li>
         <li>It will also help customers make informed purchasing decisions based on their photography needs.</li>
     </ul>
-</section>
+</div>
 
 <!-- Featured Products -->
-<section class="featured">
+<div class="featured">
     <h2>Featured Products</h2>
     <div class="product-row">
         <?php while($product = $product_result->fetch_assoc()): ?>
             <div class="product-item">
                 <img src="../<?php echo $product['image_path']; ?>" 
                      alt="<?php echo htmlspecialchars($product['name']); ?>" 
-                     class="product-image">
+                     class="product-image"/>
                 <p><?php echo htmlspecialchars($product['name']); ?></p>
                 <p class="price"><?php echo number_format($product['price'], 2); ?> SR</p>
                 
@@ -143,6 +144,6 @@ $product_result = $conn->query($product_query);
             </div>
         <?php endwhile; ?>
     </div>
-</section>
+</div>
 
 <?php include './includes/footer.php'; ?>
