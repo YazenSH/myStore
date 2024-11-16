@@ -2,8 +2,5 @@
     "require": {
         "php": "^8.0",
         "ext-mysqli": "*"
-    },
-    "scripts": {
-        "start": "php -S 0.0.0.0:$PORT pages/index.php"
     }
 }
