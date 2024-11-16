@@ -84,11 +84,11 @@ $product_result = $conn->query($product_query);
 
 <!-- Introduction section -->
 <section class="intro-box">
-    <p>
+    <h6>
         At <strong>Photography Store</strong>, we provide the latest and best photography equipment
         to help you capture every moment with precision. Explore our wide range of
         cameras, lenses, tripods, and accessories.
-    </p>
+    </h6>
     <blockquote>
         "Photography is the story I fail to put into words."<cite> – Destin Sparks</cite>
     </blockquote>
