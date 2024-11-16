@@ -75,7 +75,7 @@ $page_titles = [
 
 
 <?php 
-include '../db/connection.php';
+include './db/connection.php';
 
 // Fetch only first 3 products
 $product_query = "SELECT * FROM products ORDER BY product_ID DESC LIMIT 3";
