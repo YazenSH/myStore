@@ -1,6 +1,6 @@
 <?php 
-include '/includes/header.php';
-include '/db/connection.php';
+include './includes/header.php';
+include './db/connection.php';
 
 // Fetch only first 3 products
 $product_query = "SELECT * FROM products ORDER BY product_ID DESC LIMIT 3";
@@ -69,4 +69,4 @@ $product_result = $conn->query($product_query);
     </div>
 </section>
 
-<?php include '/includes/footer.php'; ?>
+<?php include './includes/footer.php'; ?>

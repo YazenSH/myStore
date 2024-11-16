@@ -1,28 +1,22 @@
 <?php
-$host = getenv("MYSQLHOST");
-$username = "root";  // Railway uses root by default
-$password = getenv("MYSQLPASSWORD");
-$dbname = "railway"; // Railway's default database name
-$port = getenv("MYSQLPORT");
 
-// Check if environment variables are set
-if (!$host || !$password || !$port) {
-    die("Required environment variables are not set.");
-}
+    // Database URL (replace with your actual URL)
+    $database_url = "mysql://root:xDyETSPdXxQcgaLySbAOLRoiwidUIWzm@mysql.railway.internal:3306/railway";
 
-try {
-    // Create the connection
-    $conn = new mysqli($host, $username, $password, $dbname, $port);
+    // Parse the URL
+    $db_url = parse_url($database_url);
 
-    // Check the connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+    $host = $db_url["host"];
+    $dbname = ltrim($db_url["path"], '/');
+    $username = $db_url["user"];
+    $password = $db_url["pass"];
+    $port = $db_url["port"];
+
+    // Establish a connection to the MySQL database
+    $conn = mysqli_connect($host, $username, $password, $dbname, $port);
+
+    // Check if the connection was successful
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
     }
-
-    // Remove or comment out this line in production
-    // echo "Connection successful!";
-    
-} catch(Exception $e) {
-    die("Connection failed: " . $e->getMessage());
-}
 ?>
