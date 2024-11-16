@@ -1,6 +1,6 @@
 <?php
 // Get the MySQL URL from the environment variable
-$mysql_url = getenv("MYSQL_URL");
+$mysql_url = getenv("${{MySQL.MYSQL_PUBLIC_URL}}");
 
 // Parse the URL to get components
 $parts = parse_url($mysql_url);
