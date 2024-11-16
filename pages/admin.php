@@ -57,39 +57,6 @@ $product_result = $conn->query($product_query);
     </section>
 
     <!-- Product Management -->
-    <section class="admin-section">
-        <h2>Product Management</h2>
-        
-        <!-- Add Product Form -->
-    <form action="../php_actions/add_product.php" method="POST" enctype="multipart/form-data" class="admin-form">
-        <div class="form-group">
-            <input type="text" name="name" placeholder="Product Name" required>
-            <input type="number" name="price" placeholder="Price" required>
-            <input type="text" name="description" placeholder="Description" required>
-            <input type="file" name="image" required>
-            <button type="submit">Add Product</button>
-        </div>
-    </form>
-
-    <!-- Display success/error messages -->
-    <?php
-    if (isset($_SESSION['success'])) {
-        echo "<div class='success'>" . $_SESSION['success'] . "</div>";
-        unset($_SESSION['success']);
-    }
-    if (isset($_SESSION['error'])) {
-        echo "<div class='error'>" . $_SESSION['error'] . "</div>";
-        unset($_SESSION['error']);
-    }
-    if (isset($_SESSION['errors'])) {
-        foreach ($_SESSION['errors'] as $error) {
-            echo "<div class='error'>" . $error . "</div>";
-        }
-        unset($_SESSION['errors']);
-    }
-    ?>
-
-<!-- Product Management -->
 <section class="admin-section">
     <h2>Product Management</h2>
     <table class="admin-table">
