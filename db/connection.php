@@ -1,27 +1,21 @@
 <?php
-// Get the MySQL URL from the environment variable
-$mysql_url = getenv("MYSQL_PUBLIC_URL"); // Use the actual environment variable name here
+    // Database URL (replace with your actual URL)
+    $database_url = "mysql://root:xDyETSPdXxQcgaLySbAOLRoiwidUIWzm@autorack.proxy.rlwy.net:51658/railway";
 
-if (!$mysql_url) {
-    die("Environment variable 'MYSQL_PUBLIC_URL' not set.");
-}
+    // Parse the URL
+    $db_url = parse_url($database_url);
 
-// Parse the URL to get components
-$parts = parse_url($mysql_url);
+    $host = $db_url["host"];
+    $dbname = ltrim($db_url["path"], '/');
+    $username = $db_url["user"];
+    $password = $db_url["pass"];
+    $port = $db_url["port"];
 
-$host = $parts['host'];
-$username = $parts['user'];
-$password = $parts['pass'];
-$dbname = ltrim($parts['path'], '/');
-$port = isset($parts['port']) ? $parts['port'] : 3306; // Default MySQL port
+    // Establish a connection to the MySQL database
+    $conn = mysqli_connect($host, $username, $password, $dbname, $port);
 
-// Create the connection
-$conn = new mysqli($host, $username, $password, $dbname, $port);
-
-// Check the connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-echo "Connection successful!";
+    // Check if the connection was successful
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
 ?>
