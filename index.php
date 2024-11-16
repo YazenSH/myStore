@@ -133,7 +133,7 @@ $product_result = $conn->query($product_query);
                 <p class="price"><?php echo number_format($product['price'], 2); ?> SR</p>
                 
                 <?php if(!isset($_SESSION['user_id'])): ?>
-                    <a href="login.php" class="add-to-cart-btn">Login to Buy</a>
+                    <a href="./pages/login.php" class="add-to-cart-btn">Login to Buy</a>
                 <?php elseif(isset($_SESSION['is_admin']) && $_SESSION['is_admin']==1): ?>
                     <button class="add-to-cart-btn" onclick="alert('Admins cannot add items to cart')">Add to Cart</button>
                 <?php else: ?>
