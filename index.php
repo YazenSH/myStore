@@ -29,7 +29,7 @@ $page_titles = [
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $page_titles[$current_page] ?? 'Photography Store'; ?></title>
-    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="./css/global.css">
     <link rel="icon" href="../Images/Logo.png" type="image/png">
 </head>
 <body>
@@ -83,7 +83,7 @@ $product_result = $conn->query($product_query);
 ?>
 
 <!-- Introduction section -->
-<section class="intro box">
+<section class="intro-box">
     <p>
         At <strong>Photography Store</strong>, we provide the latest and best photography equipment
         to help you capture every moment with precision. Explore our wide range of
