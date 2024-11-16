@@ -42,9 +42,9 @@ $page_titles = [
                 <!-- Check if user is logged in or admin or guest, and shows the correct nav bar element -->
                 <?php if (isset($_SESSION['user_id'])): ?>
                     <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']==1): ?>
-                        <a href="admin.php" class="nav-btn">Control Panel</a>
+                        <a href="./pages/admin.php" class="nav-btn">Control Panel</a>
                     <?php else: ?>
-                        <a href="cart.php" class="nav-btn">Cart</a>
+                        <a href="./pages/cart.php" class="nav-btn">Cart</a>
                     <?php endif; ?>
                     <a href="../php_actions/process_logout.php" class="nav-btn">Log Out</a>
                 <?php else: ?>
