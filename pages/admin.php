@@ -3,8 +3,8 @@ include '../includes/header.php';
 include '../db/connection.php';
 
 //must be admin to access this page
-if (!isset($_SESSION['is_admin']) || !$_SESSION['is_admin']) {
-    header("Location: index.php");
+if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin']==0) {
+    header("Location: ../index.php");
     exit();
 }
 

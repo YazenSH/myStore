@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if ($user['isAdmin']) {
                     header("Location: ../pages/admin.php");
                 } else {
-                    header("Location: ../pages/index.php");
+                    header("Location: ../index.php");
                 }
                 exit();
             } else {
