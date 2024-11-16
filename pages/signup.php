@@ -10,7 +10,7 @@
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email"/>
+                <input type="text" id="email" name="email"/>
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
@@ -21,7 +21,7 @@
                 <input type="password" id="confirm-password" name="confirm-password"/>
             </div>
             <div class="form-group">
-                <input type="submit" value="Sign Up" class="btn">
+                <input type="submit" value="Sign Up" class="btn"/>
             </div>
             <div class="form-group login-link">
                 <p>Already have an account? <a href="login.php">Login here</a></p>

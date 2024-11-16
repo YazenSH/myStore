@@ -5,7 +5,7 @@
     <form action="../php_actions/process_login.php" method="POST" onsubmit="return validateLoginForm()">
         <div class="form-group">
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" >
+            <input type="text" id="email" name="email" >
         </div>
         <div class="form-group">
             <label for="password">Password:</label>
