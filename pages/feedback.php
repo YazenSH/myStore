@@ -69,7 +69,7 @@
                         <option value="Product Quality">Product Quality</option>
                         <option value="Customer Service">Customer Service</option>
                         <option value="Website">Website Experience</option>
-                        <option value="Shipping">Shipping & Delivery</option>
+                        <option value="Shipping">Shipping &amp; Delivery</option>
                     </select>
             </div>
         </fieldset>
@@ -78,7 +78,7 @@
             <legend>Your Feedback</legend>
             <div class="form-group">
                 <label for="feedback">Comments:</label>
-                <textarea id="feedback" name="feedback" ></textarea>
+                <textarea id="feedback" name="feedback" rows="5" cols="40" ></textarea>
             </div>
         </fieldset>
 
