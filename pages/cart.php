@@ -47,16 +47,16 @@ $total = 0;
                             <p class="price"><?php echo number_format($item['price'], 2); ?> SR</p>
                         </div>
                 <!-- This form to update the quantity of the item -->
-                        <form action="../php_actions/update_cart.php" method="POST">
-                            <input type="hidden" name="product_id" value="<?php echo $item['product_ID']; ?>">
-                            <select name="quantity" onchange="this.form.submit()">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </form>
+                <form action="../php_actions/update_cart.php" method="POST">
+                    <input type="hidden" name="product_id" value="<?php echo $item['product_ID']; ?>">
+                    <select name="quantity" onchange="this.form.submit()">
+                        <?php for($i = 1; $i <= 5; $i++): ?>
+                            <option value="<?php echo $i; ?>" <?php echo ($i == $item['quantity']) ? 'selected' : ''; ?>>
+                                <?php echo $i; ?>
+                            </option>
+                        <?php endfor; ?>
+                    </select>
+                </form>
                 <!-- This form to remove the item from the cart -->
                         <form action="../php_actions/remove_cart.php" method="POST">
                             <input type="hidden" name="product_id" value="<?php echo $item['product_ID']; ?>">
