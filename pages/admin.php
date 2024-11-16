@@ -1,20 +1,24 @@
 <?php
-include '../includes/header.php'; 
-include '../db/connection.php';
+session_start();
+require_once '../db/connection.php';
 
-// Must be admin to access this page
 if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] == 0 || !isset($_SESSION['user_id'])) {
-    header("Location: ../index.php");
+    include '../includes/header.php';
+    ?>
+    <div class="container">
+        <div class="error-message">
+            <h2>Access Denied</h2>
+            <p>You don't have permission to access this page.</p>
+            <a href="index.php" class="btn">Return to Home</a>
+        </div>
+    </div>
+    <?php
+    include '../includes/footer.php';
     exit();
-} else {
-    // Only fetch data if user is admin
-    // Fetch all admins
-    $admin_query = "SELECT user_ID, name, email FROM users WHERE isAdmin = 1";
-    $admin_result = $conn->query($admin_query);
+}
 
-    // Fetch all products
-    $product_query = "SELECT * FROM products";
-    $product_result = $conn->query($product_query);
+// Continue with admin page if user is admin
+include '../includes/header.php';
 ?>
 
     <div class="container">
