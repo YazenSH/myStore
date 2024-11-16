@@ -1,12 +1,12 @@
 <?php
-$servername = "localhost";  // Copy from MYSQLHOST
+$host = "mysql.railway.internal";  // Copy from MYSQLHOST
 $username = "root";      // Copy from MYSQLUSER
-$password = "";      // Copy from MYSQLPASSWORD
-$dbname = "store";        // Copy from MYSQL_DATABASE
+$password = "xDyETSPdXxQcgaLySbAOLRoiwidUIWzm";      // Copy from MYSQLPASSWORD
+$dbname = "railway";        // Copy from MYSQL_DATABASE
 $port = "3306";             // Copy from MYSQLPORT
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname, $port);
+$conn = new mysqli($host, $username, $password, $dbname, $port);
 
 // Check connection
 if ($conn->connect_error) {
