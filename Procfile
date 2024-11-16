@@ -1,1 +1,1 @@
-web: php -S 0.0.0.0:$PORT ./pages/index.php
+web: php -S 0.0.0.0:$PORT -t pages
