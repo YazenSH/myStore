@@ -1,5 +1,5 @@
 </div>
-    <div clas="footer">
+    <div class="footer">
         <p>&copy; 2024 Photography Store. All rights reserved.</p>
         <div>
             <a href="https://validator.w3.org/check?uri=referer">
