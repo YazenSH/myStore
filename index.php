@@ -30,13 +30,13 @@ $page_titles = [
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><?php echo $page_titles[$current_page] ?? 'Photography Store'; ?></title>
-    <link rel="stylesheet" href="./css/global.css">
-    <link rel="icon" href="../Images/Logo.png" type="image/png">
+    <link rel="stylesheet" href="./css/global.css"/>
+    <link rel="icon" href="../Images/Logo.png" type="image/png"/>
 </head>
 <body>
-    <header class="main-header">
+    <div class="main-header">
         <div class="header-content">
-            <img src="../Images/Logo.png" alt="Photography Store Logo" class="logo">
+            <img src="../Images/Logo.png" alt="Photography Store Logo" class="logo"/>
             <h1 class="header_name">Welcome to Photography Store</h1>
             <div class="user-nav">
                 <!-- Check if user is logged in or admin or guest, and shows the correct nav bar element -->
@@ -69,7 +69,7 @@ $page_titles = [
                 <?php endif; ?>
             </ul>
         </div>
-    </header>
+                </div>
     <!-- This will be closed in the start of the footer so everything wraped between header and footer will be in the container -->
     <div class="container">
 
@@ -84,17 +84,18 @@ $product_result = $conn->query($product_query);
 ?>
 
 <!-- Introduction section -->
-<div class="intro-box">
+<div class="intro box">
     <p>
         At <strong>Photography Store</strong>, we provide the latest and best photography equipment
         to help you capture every moment with precision. Explore our wide range of
         cameras, lenses, tripods, and accessories.
     </p>
     <blockquote>
-    "Photography is the story I fail to put into words."
-    <cite>– Destin Sparks</cite>
-</blockquote>
+        <p>"Photography is the story I fail to put into words."</p>
+        <p><cite>– Destin Sparks</cite></p>
+    </blockquote>
 </div>
+
 
 <!-- Problem Definition Section -->
 <div class="problem-definition box">

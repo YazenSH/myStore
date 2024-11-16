@@ -1,5 +1,5 @@
 </div>
-    <footer>
+    <div clas="footer">
         <p>&copy; 2024 Photography Store. All rights reserved.</p>
         <div>
             <a href="https://validator.w3.org/check?uri=referer">
@@ -9,6 +9,6 @@
                 <img src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS"/>
             </a>
         </div>
-    </footer>
+    </div>
 </body>
 </html>
