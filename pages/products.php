@@ -17,7 +17,7 @@
             $product_id = $product['product_ID'];
             ?>
             <div class="product-item">
-                <img src="../<?php echo $image_path; ?>" alt="<?php echo $product_name; ?>" class="product-image">
+                <img src="../<?php echo $image_path; ?>" alt="<?php echo $product_name; ?>" class="product-image"/>
                 <p><?php echo $product_name; ?></p>
                 <p class="price"><?php echo $product_price; ?> SR</p>
 
