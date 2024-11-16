@@ -1,7 +1,7 @@
 <?php
 require_once '../db/connection.php';
 
-if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] == 0 || !isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] == 0 ) {
     include '../includes/header.php';
     ?>
     <div class="error-message">
