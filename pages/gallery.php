@@ -4,7 +4,7 @@
     <h2>Our Photography Equipment</h2>
     <div class="gallery">
         <div class="main-image">
-            <img id="featured" src="../Images/canon-eos-r5.jpg" alt="Featured Image">
+            <img id="featured" src="../Images/canon-eos-r5.jpg" alt="Featured Image"/>
         </div>
         <div class="thumbnails">
             <img class="thumb" src="../Images/canon-eos-r5.jpg" alt="Canon EOS R5"/>
