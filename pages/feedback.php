@@ -2,24 +2,24 @@
 
 <div class="container">
     <h2>Customer Feedback</h2>
-    <form class="feedback-form" id="feedbackForm" action="../php_actions/process_feedback.php" method="POST" onsubmit="return validateForm()">
+    <form class="feedback-form" id="feedbackForm" action="../php_actions/process_feedback.php" method="post" onsubmit="return validateForm()">
         <fieldset>
             <legend>Personal Information</legend>
             <div class="form-group">
                 <label for="name">Full Name:</label>
-                <input type="text" id="name" name="name" >
+                <input type="text" id="name" name="name"/>
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="text" id="email" name="email" >
+                <input type="text" id="email" name="email"/>
             </div>
             <div class="form-group">
                 <label for="phone">Phone Number:</label>
-                <input type="text" id="phone" name="phone">
+                <input type="text" id="phone" name="phone"/>
             </div>
             <div class="form-group">
                 <label for="age">Age:</label>
-                <input type="text" id="age" name="age" >
+                <input type="text" id="age" name="age"/>
         </fieldset>
 
         <fieldset>
