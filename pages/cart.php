@@ -4,7 +4,7 @@ include '../db/connection.php';
 
 // Check if user is logged in and not admin
 if (!isset($_SESSION['user_id']) || (isset($_SESSION['is_admin']) && $_SESSION['is_admin']==1)) {
-    header("Location: ../index.php");
+    header("Location: index.php");
     exit();
 }
 

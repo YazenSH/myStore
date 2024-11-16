@@ -4,7 +4,7 @@ include '../db/connection.php';
 
 //must be admin to access this page
 if (!isset($_SESSION['is_admin']) || !$_SESSION['is_admin']) {
-    header("Location: ../index.php");
+    header("Location: index.php");
     exit();
 }
 
