@@ -5,6 +5,13 @@ session_start();
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['is_admin']) && $_SESSION['is_admin']==1) {
     $errors = array();
     
+    // Create uploads directory if it doesn't exist
+    $target_dir = "../public/uploads/";
+    if (!file_exists($target_dir)) {
+        mkdir($target_dir, 0777, true);
+        chmod($target_dir, 0777);
+    }
+    
     // Validate inputs
     $name = trim($_POST['name']);
     $price = $_POST['price'];
@@ -39,28 +46,46 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['is_admin']) && $_SE
     }
     
     if (empty($errors)) {
-        $target_dir = "../Images/";
-        $target_file = $target_dir . basename($_FILES["image"]["name"]);
-        $image_path = "Images/" . basename($_FILES["image"]["name"]);
+        // Generate unique filename to prevent overwriting
+        $file_name = uniqid() . '_' . basename($_FILES["image"]["name"]);
+        $target_file = $target_dir . $file_name;
+        $image_path = "public/uploads/" . $file_name;
         
-        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-            $sql = "INSERT INTO products (name, price, description, image_path) VALUES (?, ?, ?, ?)";
-            $stmt = $conn->prepare($sql);
-            $stmt->bind_param("sdss", $name, $price, $description, $image_path);
-            
-            if ($stmt->execute()) {
-                header("Location: ../pages/admin.php?success=added");
+        try {
+            if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+                // Insert into database
+                $sql = "INSERT INTO products (name, price, description, image_path) VALUES (?, ?, ?, ?)";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("sdss", $name, $price, $description, $image_path);
+                
+                if ($stmt->execute()) {
+                    $_SESSION['success'] = "Product added successfully";
+                    header("Location: ../pages/admin.php");
+                    exit();
+                } else {
+                    throw new Exception("Database error");
+                }
+                $stmt->close();
             } else {
-                header("Location: ../pages/admin.php?error=failed");
+                throw new Exception("Error uploading file");
             }
-            $stmt->close();
-        } else {
-            header("Location: ../pages/admin.php?error=upload");
+        } catch (Exception $e) {
+            $_SESSION['error'] = "Error: " . $e->getMessage();
+            header("Location: ../pages/admin.php");
+            exit();
         }
     } else {
         $_SESSION['errors'] = $errors;
-        header("Location: ../pages/admin.php?error=validation");
+        header("Location: ../pages/admin.php");
+        exit();
     }
 }
+
+// If not POST request or not admin
+if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] != 1) {
+    header("Location: ../pages/index.php");
+    exit();
+}
+
 $conn->close();
 ?>
