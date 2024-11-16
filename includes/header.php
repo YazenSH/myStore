@@ -23,11 +23,11 @@ $page_titles = [
     'cart.php' => 'Cart - Photography Store',
 ];
 ?>
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><?php echo $page_titles[$current_page] ?? 'Photography Store'; ?></title>
     <link rel="stylesheet" href="../css/global.css">
     <link rel="icon" href="../Images/Logo.png" type="image/png">
