@@ -822,7 +822,31 @@ footer {
 .admin-table button:hover {
     background: #555;
 }
+.admin-table input[type="number"],
+.admin-table input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
 
+.admin-table td {
+    padding: 10px;
+    vertical-align: middle;
+}
+
+.edit-btn {
+    background: #333;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    background: #555;
+}
 
 /* ------------------------------------------------------ */
 

@@ -89,33 +89,44 @@ $product_result = $conn->query($product_query);
     }
     ?>
 
-    <!-- This table is used to display all products and remove them -->
-        <table class="admin-table">
-            <thead>
+<!-- Product Management -->
+<section class="admin-section">
+    <h2>Product Management</h2>
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            $product_query = "SELECT * FROM products";
+            $product_result = $conn->query($product_query);
+            while($product = $product_result->fetch_assoc()): ?>
                 <tr>
-                    <th>Image</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Action</th>
+                    <td><img src="../<?php echo $product['image_path']; ?>" alt="Product" width="50"></td>
+                    <td><?php echo htmlspecialchars($product['name']); ?></td>
+                    <td>
+                        <form action="../php_actions/update_product.php" method="POST">
+                            <input type="hidden" name="product_id" value="<?php echo $product['product_ID']; ?>">
+                            <input type="number" name="price" value="<?php echo $product['price']; ?>" required>
+                    </td>
+                    <td>
+                            <input type="text" name="description" value="<?php echo htmlspecialchars($product['description']); ?>" required>
+                    </td>
+                    <td>
+                            <button type="submit" class="edit-btn">Update</button>
+                        </form>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                <?php while($product = $product_result->fetch_assoc()): ?>
-                    <tr>
-                        <td><img src="../<?php echo $product['image_path']; ?>" alt="Product" width="50"></td>
-                        <td><?php echo htmlspecialchars($product['name']); ?></td>
-                        <td><?php echo htmlspecialchars($product['price']); ?></td>
-                        <td>
-                            <form action="../php_actions/remove_product.php" method="POST">
-                                <input type="hidden" name="product_id" value="<?php echo $product['product_ID']; ?>">
-                                <button type="submit" onclick="return confirm('Remove this product?')">Remove</button>
-                            </form>
-                        </td>
-                    </tr>
-                <?php endwhile; ?>
-            </tbody>
-        </table>
-    </section>
+            <?php endwhile; ?>
+        </tbody>
+    </table>
+</section>
 </div>
 
 <script src="../js/validation.js"></script>
