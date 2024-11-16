@@ -7,7 +7,7 @@ if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] == 0 || !isset($_SESS
     <div class="error-message">
         <h2>Access Denied</h2>
         <p>You don't have permission to access this page.</p>
-        <a href="index.php" class="btn">Return to Home</a>
+        <a href="../index.php" class="btn">Return to Home</a>
     </div>
     <?php
     include '../includes/footer.php';
