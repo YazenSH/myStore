@@ -20,6 +20,7 @@
             <div class="form-group">
                 <label for="age">Age:</label>
                 <input type="text" id="age" name="age"/>
+            </div>
         </fieldset>
 
         <fieldset>
@@ -28,15 +29,15 @@
                 <label>Products Purchased:</label>
                 <div class="checkbox-group">
                     <div class="checkbox-item">
-                        <input type="checkbox" id="cameras" name="products[]" value="cameras">
+                        <input type="checkbox" id="cameras" name="products[]" value="cameras"/>
                         <label for="cameras">Cameras</label>
                     </div>
                     <div class="checkbox-item">
-                        <input type="checkbox" id="lenses" name="products[]" value="lenses">
+                        <input type="checkbox" id="lenses" name="products[]" value="lenses"/>
                         <label for="lenses">Lenses</label>
                     </div>
                     <div class="checkbox-item">
-                        <input type="checkbox" id="accessories" name="products[]" value="accessories">
+                        <input type="checkbox" id="accessories" name="products[]" value="accessories"/>
                         <label for="accessories">Accessories</label>
                     </div>
                 </div>
@@ -46,15 +47,15 @@
                 <label>Satisfaction Level:</label>
                 <div class="radio-group">
                     <div class="radio-item">
-                        <input type="radio" id="satisfied" name="satisfaction" value="satisfied">
+                        <input type="radio" id="satisfied" name="satisfaction" value="satisfied"/>
                         <label for="satisfied">Satisfied</label>
                     </div>
                     <div class="radio-item">
-                        <input type="radio" id="neutral" name="satisfaction" value="neutral">
+                        <input type="radio" id="neutral" name="satisfaction" value="neutral"/>
                         <label for="neutral">Neutral</label>
                     </div>
                     <div class="radio-item">
-                        <input type="radio" id="dissatisfied" name="satisfaction" value="dissatisfied">
+                        <input type="radio" id="dissatisfied" name="satisfaction" value="dissatisfied"/>
                         <label for="dissatisfied">Dissatisfied</label>
                     </div>
                 </div>
@@ -87,6 +88,6 @@
     </form>
 </div>
 
-<script src="../js/validation.js"></script>
+<script src="../js/validation.js" type="text/javascript"></script>
 
 <?php include '../includes/footer.php'; ?>
