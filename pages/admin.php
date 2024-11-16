@@ -1,9 +1,9 @@
 <?php
-include '../includes/header.php'; // Ensure header.php starts properly with <html> and <body>.
+include '../includes/header.php'; 
 include '../db/connection.php';
 
 // Must be admin to access this page
-if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] == 0) {
+if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] == 0 || !isset($_SESSION['user_id'])) {
     header("Location: ../index.php");
     exit();
 }
