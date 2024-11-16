@@ -1,3 +1,0 @@
-[services]
-[services.php]
-start = "php -S 0.0.0.0:80 -t pages"

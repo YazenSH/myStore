@@ -1,27 +1,28 @@
 <?php
-// Get the MySQL URL from the environment variable
-$mysql_url = getenv("MYSQL_PUBLIC_URL"); // Use the actual environment variable name here
+$host = getenv("MYSQLHOST");
+$username = "root";  // Railway uses root by default
+$password = getenv("MYSQLPASSWORD");
+$dbname = "railway"; // Railway's default database name
+$port = getenv("MYSQLPORT");
 
-if (!$mysql_url) {
-    die("Environment variable 'MYSQL_PUBLIC_URL' not set.");
+// Check if environment variables are set
+if (!$host || !$password || !$port) {
+    die("Required environment variables are not set.");
 }
 
-// Parse the URL to get components
-$parts = parse_url($mysql_url);
+try {
+    // Create the connection
+    $conn = new mysqli($host, $username, $password, $dbname, $port);
 
-$host = $parts['host'];
-$username = $parts['user'];
-$password = $parts['pass'];
-$dbname = ltrim($parts['path'], '/');
-$port = isset($parts['port']) ? $parts['port'] : 3306; // Default MySQL port
+    // Check the connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
 
-// Create the connection
-$conn = new mysqli($host, $username, $password, $dbname, $port);
-
-// Check the connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    // Remove or comment out this line in production
+    // echo "Connection successful!";
+    
+} catch(Exception $e) {
+    die("Connection failed: " . $e->getMessage());
 }
-
-echo "Connection successful!";
 ?>
