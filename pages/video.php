@@ -5,9 +5,9 @@
     <object data="https://www.youtube.com/embed/ZkGmqj7nWsA" 
             width="800" 
             height="450">
-        <param name="movie" value="https://www.youtube.com/embed/ZkGmqj7nWsA">
-        <param name="allowFullScreen" value="true">
-        <param name="allowscriptaccess" value="always">
+        <param name="movie" value="https://www.youtube.com/embed/ZkGmqj7nWsA"/>
+        <param name="allowFullScreen" value="true"/>
+        <param name="allowscriptaccess" value="always"/>
     </object>
 </div>
 
