@@ -30,5 +30,5 @@
 </div>
 </div>
 
-<script src="../js/validation.js" type="text/css"></script>
+<script src="../js/validation.js" type="text/javascript"></script>
 <?php include '../includes/footer.php'; ?>

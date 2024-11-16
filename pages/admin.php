@@ -96,6 +96,6 @@ $product_result = $conn->query($product_query);
 </section>
 </div>
 
-<script src="../js/validation.js"></script>
+<script src="../js/validation.js" type="text/javascript"></script>
 
 <?php include '../includes/footer.php'; ?>
