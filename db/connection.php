@@ -9,7 +9,7 @@
     $dbname = ltrim($db_url["path"], '/');
     $username = $db_url["user"];
     $password = $db_url["pass"];
-    $port = $db_url["port"];
+    $port = 3306;
 
     // Establish a connection to the MySQL database
     $conn = mysqli_connect($host, $username, $password, $dbname, $port);
