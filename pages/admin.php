@@ -1,20 +1,33 @@
 <?php
+session_start(); // Add this at the very top
 require_once '../db/connection.php';
 
-if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] == 0 ) {
+// Update condition and maybe add a debug statement
+if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] != 1) {
+    // For debugging
+    echo "Debug: is_admin = " . (isset($_SESSION['is_admin']) ? $_SESSION['is_admin'] : 'not set');
+    
     include '../includes/header.php';
     ?>
     <div class="error-message">
         <h2>Access Denied</h2>
         <p>You don't have permission to access this page.</p>
-        <a href="../index.php" class="btn">Return to Home</a>
+        <a href="index.php" class="btn">Return to Home</a>
     </div>
     <?php
     include '../includes/footer.php';
     exit();
 }
 
+// Also check your login process to make sure isAdmin is set correctly
+// In process_login.php it should be:
+/*
+$_SESSION['is_admin'] = (int)$user['isAdmin']; // Make sure it's treated as a number
+*/
+
 include '../includes/header.php';
+
+// Rest of your code...
 
 // Fetch all admins
 $admin_query = "SELECT user_ID, name, email FROM users WHERE isAdmin = 1";
