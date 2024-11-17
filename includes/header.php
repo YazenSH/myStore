@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 // Get current page name for title
 //$_server is a super global variable which holds information about headers, paths, and script locations.
