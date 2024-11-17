@@ -4,9 +4,6 @@ require_once '../db/connection.php';
 
 // Update condition and maybe add a debug statement
 if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] != 1) {
-    // For debugging
-    echo "Debug: is_admin = " . (isset($_SESSION['is_admin']) ? $_SESSION['is_admin'] : 'not set');
-    
     include '../includes/header.php';
     ?>
     <div class="error-message">
