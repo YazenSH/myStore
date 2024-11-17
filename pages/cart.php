@@ -15,7 +15,7 @@ if (!isset($_SESSION['user_id']) || (isset($_SESSION['is_admin']) && $_SESSION['
                 echo "Admins don't have access to cart functionality.";
             }
         ?></p>
-        <a href="<?php echo !isset($_SESSION['user_id']) ? 'login.php' : 'index.php'; ?>" class="btn">
+        <a href="<?php echo !isset($_SESSION['user_id']) ? 'login.php' : '../index.php'; ?>" class="btn">
             <?php echo !isset($_SESSION['user_id']) ? 'Login' : 'Return to Home'; ?>
         </a>
     </div>
