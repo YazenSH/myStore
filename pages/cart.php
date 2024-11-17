@@ -1,16 +1,33 @@
-<?php 
-include '../includes/header.php';
-include '../db/connection.php';
+<?php
+session_start();
+require_once '../db/connection.php';
 
 // Check if user is logged in and not admin
 if (!isset($_SESSION['user_id']) || (isset($_SESSION['is_admin']) && $_SESSION['is_admin']==1)) {
-    header("Location: ../index.php");
+    include '../includes/header.php';
+    ?>
+    <div class="error-message">
+        <h2>Access Denied</h2>
+        <p><?php 
+            if(!isset($_SESSION['user_id'])) {
+                echo "Please login to view your cart.";
+            } else {
+                echo "Admins don't have access to cart functionality.";
+            }
+        ?></p>
+        <a href="<?php echo !isset($_SESSION['user_id']) ? 'login.php' : 'index.php'; ?>" class="btn">
+            <?php echo !isset($_SESSION['user_id']) ? 'Login' : 'Return to Home'; ?>
+        </a>
+    </div>
+    <?php
+    include '../includes/footer.php';
     exit();
 }
 
-// Fetch cart items
+include '../includes/header.php';
+
+// Rest of your cart code
 $user_id = $_SESSION['user_id'];
-//this query will be explained in the documentation
 $cart_query = "SELECT c.*, p.name, p.price, p.image_path 
                FROM cart c 
                JOIN products p ON c.product_ID = p.product_ID 
@@ -19,7 +36,6 @@ $stmt = $conn->prepare($cart_query);
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
 $cart_result = $stmt->get_result();
-//for each row the result is an associative array that contains the product details
 $cartItems = $cart_result->fetch_all(MYSQLI_ASSOC);
 $total = 0;
 ?>
