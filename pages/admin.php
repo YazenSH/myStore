@@ -90,18 +90,18 @@ $product_result = $conn->query($product_query);
                 <tr>
                     <td><img src="../<?php echo htmlspecialchars($product['image_path']); ?>" alt="Product" width="50" /></td>
                     <td><?php echo htmlspecialchars($product['name']); ?></td>
-                    <td>
-                        <input type="number" name="price" value="<?php echo $product['price']; ?>" class="price-input" />
-                    </td>
-                    <td>
-                        <input type="text" name="description" value="<?php echo htmlspecialchars($product['description']); ?>" class="description-input" />
-                    </td>
-                    <td>
-                        <form action="../php_actions/update_product.php" method="post" class="update-form">
+                    <form action="../php_actions/update_product.php" method="post" class="update-form">
+                        <td>
+                            <input type="text" name="price" value="<?php echo $product['price']; ?>" class="price-input" />
+                        </td>
+                        <td>
+                            <input type="text" name="description" value="<?php echo htmlspecialchars($product['description']); ?>" class="description-input" />
+                        </td>
+                        <td>
                             <input type="hidden" name="product_id" value="<?php echo $product['product_ID']; ?>" />
                             <button type="submit" class="edit-btn">Update</button>
-                        </form>
-                    </td>
+                        </td>
+                    </form>
                 </tr>
             <?php endwhile; ?>
         </tbody>
