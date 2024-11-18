@@ -834,7 +834,7 @@ blockquote {
     text-align: center;
 }
 
-.edit-btn {
+.edit-btn .rm-btn {
     padding: 5px 10px;
     background: #333;
     color: white;
@@ -844,7 +844,7 @@ blockquote {
     min-width: 60px;
 }
 
-.edit-btn:hover {
+.edit-btn:hover .rm-btn:hover {
     background: #555;
 }
 

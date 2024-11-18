@@ -63,7 +63,7 @@ $product_result = $conn->query($product_query);
                     <td>
                         <form action="../php_actions/remove_admin.php" method="post">
                             <input type="hidden" name="admin_id" value="<?php echo $admin['user_ID']; ?>" />
-                            <button type="submit" onclick="return confirm('Remove this admin?')">Remove</button>
+                            <button type="submit" class="rm-btn" onclick="return confirm('Remove this admin?')">Remove</button>
                         </form>
                     </td>
                 </tr>
