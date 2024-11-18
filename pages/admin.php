@@ -91,10 +91,14 @@ $product_result = $conn->query($product_query);
                     <td><img src="../<?php echo htmlspecialchars($product['image_path']); ?>" alt="Product" width="50" /></td>
                     <td><?php echo htmlspecialchars($product['name']); ?></td>
                     <td>
-                        <form action="../php_actions/update_product.php" method="post">
+                        <input type="number" name="price" value="<?php echo $product['price']; ?>" class="price-input" />
+                    </td>
+                    <td>
+                        <input type="text" name="description" value="<?php echo htmlspecialchars($product['description']); ?>" class="description-input" />
+                    </td>
+                    <td>
+                        <form action="../php_actions/update_product.php" method="post" class="update-form">
                             <input type="hidden" name="product_id" value="<?php echo $product['product_ID']; ?>" />
-                            <input type="text" name="price" value="<?php echo $product['price']; ?>" />
-                            <input type="text" name="description" value="<?php echo htmlspecialchars($product['description']); ?>" />
                             <button type="submit" class="edit-btn">Update</button>
                         </form>
                     </td>

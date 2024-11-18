@@ -739,6 +739,7 @@ blockquote {
 }
 
 /*-----------------------------------*/
+
 .admin-section {
     background: white;
     padding: 20px;
@@ -752,6 +753,7 @@ blockquote {
     color: #333;
 }
 
+/* Admin Form Styles */
 .admin-form {
     max-width: 600px;
     margin-bottom: 20px;
@@ -786,6 +788,7 @@ blockquote {
     background: #555;
 }
 
+/* Admin Table Styles */
 .admin-table {
     width: 100%;
     border-collapse: collapse;
@@ -797,6 +800,7 @@ blockquote {
     padding: 12px;
     border: 1px solid #ddd;
     text-align: left;
+    vertical-align: middle;
 }
 
 .admin-table th {
@@ -809,37 +813,25 @@ blockquote {
     height: auto;
 }
 
-.admin-table td form {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
-
-.admin-table input[name="price"] {
-    width: 80px;
+/* Product Management Inputs */
+.price-input {
+    width: 100px;
     padding: 5px;
     border: 1px solid #ddd;
     border-radius: 4px;
 }
 
-.admin-table input[name="description"] {
-    width: 200px;
+.description-input {
+    width: 100%;
     padding: 5px;
     border: 1px solid #ddd;
     border-radius: 4px;
 }
 
-.admin-table button {
-    padding: 8px 16px;
-    background: #333;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.admin-table button:hover {
-    background: #555;
+/* Update Button Styles */
+.update-form {
+    margin: 0;
+    text-align: center;
 }
 
 .edit-btn {
@@ -853,5 +845,34 @@ blockquote {
 }
 
 .edit-btn:hover {
+    background: #555;
+}
+
+/* Error Message Styles */
+.error-message {
+    padding: 20px;
+    margin: 20px 0;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.error-message h2 {
+    color: #dc3545;
+    margin-bottom: 10px;
+}
+
+.error-message .btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.error-message .btn:hover {
     background: #555;
 }
