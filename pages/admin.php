@@ -93,8 +93,8 @@ $product_result = $conn->query($product_query);
                     <td>
                         <form action="../php_actions/update_product.php" method="post">
                             <input type="hidden" name="product_id" value="<?php echo $product['product_ID']; ?>" />
-                            <input type="number" name="price" value="<?php echo $product['price']; ?>" required="required" />
-                            <input type="text" name="description" value="<?php echo htmlspecialchars($product['description']); ?>" required="required" />
+                            <input type="text" name="price" value="<?php echo $product['price']; ?>" />
+                            <input type="text" name="description" value="<?php echo htmlspecialchars($product['description']); ?>" />
                             <button type="submit" class="edit-btn">Update</button>
                         </form>
                     </td>
