@@ -739,113 +739,147 @@ blockquote {
 }
 
 /*-----------------------------------*/
-
 .admin-section {
     background: white;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 2rem;
+    margin: 2rem auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    max-width: 1200px;
 }
 
 .admin-section h2 {
-    margin-bottom: 20px;
+    margin-bottom: 1.5rem;
     color: #333;
+    font-size: 1.5rem;
 }
 
-.admin-form {
-    max-width: 600px;
-    margin-bottom: 20px;
-}
-
-.admin-form .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.admin-form .form-group input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 14px;
-}
-
-.admin-form button {
-    width: 100%;
-    padding: 12px;
-    margin-top: 10px;
-    background: #333;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.admin-form button:hover {
-    background: #555;
+.table-responsive {
+    overflow-x: auto;
+    margin: 1rem -1rem;
 }
 
 .admin-table {
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: white;
 }
 
 .admin-table th,
 .admin-table td {
-    padding: 12px;
-    border: 1px solid #ddd;
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
     text-align: left;
-}
-
-.admin-table th {
-    background: #f5f5f5;
-    font-weight: bold;
-}
-
-.admin-table img {
-    max-width: 50px;
-    height: auto;
-}
-
-.admin-table button {
-    padding: 8px 16px;
-    background: #333;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.admin-table button:hover {
-    background: #555;
-}
-.admin-table input[type="number"],
-.admin-table input[type="text"] {
-    width: 100%;
-    padding: 5px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.admin-table td {
-    padding: 10px;
     vertical-align: middle;
 }
 
+.admin-table th {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #333;
+    position: sticky;
+    top: 0;
+}
+
+.product-image {
+    width: 80px;
+}
+
+.product-image img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.product-name {
+    font-weight: 500;
+    color: #333;
+}
+
+.edit-field {
+    position: relative;
+    width: 100%;
+}
+
+.price-input {
+    width: 100px;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.description-input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    resize: vertical;
+    min-height: 60px;
+}
+
+.price-input:focus,
+.description-input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+}
+
+.product-actions {
+    width: 100px;
+}
+
+.update-form {
+    margin: 0;
+}
+
 .edit-btn {
-    background: #333;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background: #007bff;
     color: white;
-    padding: 5px 10px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
 }
 
 .edit-btn:hover {
-    background: #555;
+    background: #0056b3;
+}
+
+.error-message {
+    text-align: center;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 500px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.error-message h2 {
+    color: #dc3545;
+    margin-bottom: 1rem;
+}
+
+.error-message .btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.error-message .btn:hover {
+    background: #0056b3;
 }
 
 /* ------------------------------------------------------ */
