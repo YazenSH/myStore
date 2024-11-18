@@ -26,7 +26,7 @@ if (!isset($_SESSION['user_id']) || (isset($_SESSION['is_admin']) && $_SESSION['
 
 include '../includes/header.php';
 
-// Rest of your cart code
+// Get the cart items for the logged in user from the database  
 $user_id = $_SESSION['user_id'];
 $cart_query = "SELECT c.*, p.name, p.price, p.image_path 
                FROM cart c 

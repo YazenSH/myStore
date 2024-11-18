@@ -244,3 +244,26 @@ function validateSignupForm() {
 
     return true;
 }
+
+// validate the search product form
+
+function validateSearchForm(event) {
+    const searchInput = document.getElementById('searchInput');
+    const searchValue = searchInput.value.trim();
+    
+    if (searchValue === '') {
+        event.preventDefault();
+        alert('Please enter something to search');
+        searchInput.focus();
+        return false;
+    }
+    
+    return true;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const searchForm = document.getElementById('searchForm');
+    if (searchForm) {
+        searchForm.addEventListener('submit', validateSearchForm);
+    }
+});

@@ -1,19 +1,38 @@
 <?php include '../includes/header.php'; ?>
 <?php include '../db/connection.php'; ?>
+<?php include '../php_actions/search_products.php'; ?>
 
 <h2>Our Products</h2>
+
+<!-- Simple search form -->
+<div class="search-container">
+    <form id="searchForm" method="GET" class="search-form">
+        <input type="text" 
+               name="search" 
+               id="searchInput" 
+               placeholder="Search products..." 
+               value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
+        <button type="submit">Search</button>
+    </form>
+</div>
+
 <div class="product-grid">
     <?php
-    // Fetch products from the database
-    $product_query = "SELECT * FROM products";
-    $product_result = $conn->query($product_query);
+    $product_result = null;
+    
+    if (isset($_GET['search'])) {
+        $search_response = searchProducts($conn, $_GET['search']);
+        $product_result = $search_response['result'];
+    } else {
+        $product_query = "SELECT * FROM products";
+        $product_result = $conn->query($product_query);
+    }
 
     if ($product_result && $product_result->num_rows > 0):
         while ($product = $product_result->fetch_assoc()): 
             $image_path = htmlspecialchars($product['image_path']);
             $product_name = htmlspecialchars($product['name']);
             $product_price = number_format($product['price'], 2);
-            //for adding the product to the cart
             $product_id = $product['product_ID'];
             ?>
             <div class="product-item">
@@ -33,9 +52,11 @@
                 <?php endif; ?>
             </div>
         <?php endwhile;
-    else :?>
-        <p>No products available.</p>
+    else: ?>
+        <p>No products found.</p>
     <?php endif; ?>
 </div>
+
+<script src="../js/validation.js"></script>
 
 <?php include '../includes/footer.php'; ?>
