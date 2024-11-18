@@ -17,18 +17,6 @@
     </div>
 </div>
 
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded', () => {
-    const featured = document.getElementById('featured');
-    const thumbnails = document.querySelectorAll('.thumb');
-    
-    thumbnails.forEach(thumb => {
-        thumb.addEventListener('click', () => {
-            featured.src = thumb.src;
-            featured.alt = thumb.alt;
-        });
-    });
-});
-</script>
+<script src="../js/gallery.js" type="text/javascript"></script>
 
 <?php include '../includes/footer.php'; ?>
