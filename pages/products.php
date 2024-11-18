@@ -4,7 +4,7 @@
 
 <h2>Our Products</h2>
 
-<!-- Simple search form -->
+<!-- Applying Search form-->
 <div class="search-container">
     <form id="searchForm" method="GET" class="search-form">
         <input type="text" 
