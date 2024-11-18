@@ -112,35 +112,35 @@ function validateAdminForm() {
     return true;
 }
 
-function validateProductForm() {
-    const name = document.querySelector('input[name="name"]').value.trim();
-    const price = document.querySelector('input[name="price"]').value;
-    const description = document.querySelector('input[name="description"]').value.trim();
-    const image = document.querySelector('input[name="image"]').value;
+// for product update
 
-    if (name.length < 2) {
-        alert('Product name must be at least 2 characters');
-        return false;
+function validateProductUpdate(formId) {
+    let errors = [];
+    
+    // Get form inputs
+    const price = document.getElementById('price_' + formId).value;
+    const description = document.getElementById('description_' + formId).value.trim();
+    
+    // Price validation
+    if (!price || isNaN(price) || parseFloat(price) <= 0) {
+        errors.push("Price must be greater than 0");
+        document.getElementById('price_' + formId).classList.add('error');
     }
-
-    if (price <= 0) {
-        alert('Price must be greater than 0');
-        return false;
-    }
-
+    
+    // Description validation
     if (description.length < 10) {
-        alert('Description must be at least 10 characters');
+        errors.push("Description must be at least 10 characters");
+        document.getElementById('description_' + formId).classList.add('error');
+    }
+    
+    // If there are errors, show them and prevent form submission
+    if (errors.length > 0) {
+        alert(errors.join('\n'));
         return false;
     }
-
-    if (!image) {
-        alert('Please select an image');
-        return false;
-    }
-
+    
     return true;
 }
-
 //---------------------------------------------------------------------
 
 //login and singup Validation

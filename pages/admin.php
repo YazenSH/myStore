@@ -1,8 +1,8 @@
 <?php
-session_start(); // Add this at the very top
+session_start(); //if not already started
 require_once '../db/connection.php';
 
-// Update condition and maybe add a debug statement
+// check if user is admin
 if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] != 1) {
     include '../includes/header.php';
     ?>
@@ -16,15 +16,7 @@ if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] != 1) {
     exit();
 }
 
-// Also check your login process to make sure isAdmin is set correctly
-// In process_login.php it should be:
-/*
-$_SESSION['is_admin'] = (int)$user['isAdmin']; // Make sure it's treated as a number
-*/
-
 include '../includes/header.php';
-
-// Rest of your code...
 
 // Fetch all admins
 $admin_query = "SELECT user_ID, name, email FROM users WHERE isAdmin = 1";
@@ -90,15 +82,23 @@ $product_result = $conn->query($product_query);
                 <tr>
                     <td><img src="../<?php echo htmlspecialchars($product['image_path']); ?>" alt="Product" width="50" /></td>
                     <td><?php echo htmlspecialchars($product['name']); ?></td>
-                    <form action="../php_actions/update_product.php" method="post" class="update-form">
+                    <form action="../php_actions/update_product.php" method="post" class="update-form" onsubmit="return validateProductUpdate('<?php echo htmlspecialchars($product['product_ID']); ?>')">
                         <td>
-                            <input type="text" name="price" value="<?php echo $product['price']; ?>" class="price-input" />
+                            <input type="text" 
+                                name="price" 
+                                id="price_<?php echo htmlspecialchars($product['product_ID']); ?>" 
+                                value="<?php echo htmlspecialchars($product['price']); ?>" 
+                                class="price-input" />
                         </td>
                         <td>
-                            <input type="text" name="description" value="<?php echo htmlspecialchars($product['description']); ?>" class="description-input" />
+                            <input type="text" 
+                                name="description" 
+                                id="description_<?php echo htmlspecialchars($product['product_ID']); ?>" 
+                                value="<?php echo htmlspecialchars($product['description']); ?>" 
+                                class="description-input" />
                         </td>
                         <td>
-                            <input type="hidden" name="product_id" value="<?php echo $product['product_ID']; ?>" />
+                            <input type="hidden" name="product_id" value="<?php echo htmlspecialchars($product['product_ID']); ?>" />
                             <button type="submit" class="edit-btn">Update</button>
                         </td>
                     </form>
