@@ -1,6 +1,7 @@
 </div>
     <div class="footer">
         <p>&copy; 2024 Photography Store. All rights reserved.</p>
+        <p>Photography Store, Alsulamanyah, Jeddah City, Saudi Arabia</p>
         <div>
             <a href="https://validator.w3.org/check?uri=https://mystore-production-f6c9.up.railway.app/">
                 <img src="https://www.w3.org/Icons/valid-xhtml10" 
