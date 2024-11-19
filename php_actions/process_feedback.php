@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $errors = array();
     
     // Validate name (not empty)
-    if (empty(trim($_POST['name']))) {
+    if (empty(trim($_POST['name'])) || strlen(trim($_POST['name'])) < 3) {
         $errors[] = "Name is required.";
     }
 

@@ -10,7 +10,7 @@ function validateForm() {
     var feedback = document.getElementById("feedback").value;
 
     // Validate name
-    if (name.trim() === "") {
+    if (name.trim() === "" || name.trim().length < 2) {
         alert("Name is required.");
         return false;
     }
