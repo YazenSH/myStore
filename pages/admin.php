@@ -50,11 +50,11 @@ $product_result = $conn->query($product_query);
         <tbody>
             <?php while ($admin = $admin_result->fetch_assoc()): ?>
                 <tr>
-                    <td><?php echo htmlspecialchars($admin['name']); ?></td>
-                    <td><?php echo htmlspecialchars($admin['email']); ?></td>
+                    <td><?php echo htmlspecialchars($admin['name'], ENT_QUOTES, 'UTF-8'); ?></td>
+                    <td><?php echo htmlspecialchars($admin['email'], ENT_QUOTES, 'UTF-8'); ?></td>
                     <td>
                         <form action="../php_actions/remove_admin.php" method="post">
-                            <input type="hidden" name="admin_id" value="<?php echo $admin['user_ID']; ?>" />
+                            <input type="hidden" name="admin_id" value="<?php echo (int)$admin['user_ID']; ?>" />
                             <button type="submit" class="rm-btn" onclick="return confirm('Remove this admin?')">Remove</button>
                         </form>
                     </td>
@@ -78,27 +78,29 @@ $product_result = $conn->query($product_query);
             </tr>
         </thead>
         <tbody>
-            <?php while ($product = $product_result->fetch_assoc()): ?>
+            <?php while ($product = $product_result->fetch_assoc()): 
+                $product_id = (int)$product['product_ID']; // Cast to integer
+                ?>
                 <tr>
-                    <td><img src="../<?php echo htmlspecialchars($product['image_path']); ?>" alt="Product" width="50" /></td>
-                    <td><?php echo htmlspecialchars($product['name']); ?></td>
-                    <form action="../php_actions/update_product.php" method="post" class="update-form" onsubmit="return validateProductUpdate('<?php echo htmlspecialchars($product['product_ID']); ?>')">
+                    <td><img src="../<?php echo htmlspecialchars($product['image_path'], ENT_QUOTES, 'UTF-8'); ?>" alt="Product" width="50" /></td>
+                    <td><?php echo htmlspecialchars($product['name'], ENT_QUOTES, 'UTF-8'); ?></td>
+                    <form action="../php_actions/update_product.php" method="post" class="update-form" onsubmit="return validateProductUpdate('<?php echo $product_id; ?>')">
                         <td>
                             <input type="text" 
                                 name="price" 
-                                id="price_<?php echo htmlspecialchars($product['product_ID']); ?>" 
-                                value="<?php echo htmlspecialchars($product['price']); ?>" 
+                                id="price_<?php echo $product_id; ?>" 
+                                value="<?php echo htmlspecialchars($product['price'], ENT_QUOTES, 'UTF-8'); ?>" 
                                 class="price-input" />
                         </td>
                         <td>
                             <input type="text" 
                                 name="description" 
-                                id="description_<?php echo htmlspecialchars($product['product_ID']); ?>" 
-                                value="<?php echo htmlspecialchars($product['description']); ?>" 
+                                id="description_<?php echo $product_id; ?>" 
+                                value="<?php echo htmlspecialchars($product['description'], ENT_QUOTES, 'UTF-8'); ?>" 
                                 class="description-input" />
                         </td>
                         <td>
-                            <input type="hidden" name="product_id" value="<?php echo htmlspecialchars($product['product_ID']); ?>" />
+                            <input type="hidden" name="product_id" value="<?php echo $product_id; ?>" />
                             <button type="submit" class="edit-btn">Update</button>
                         </td>
                     </form>

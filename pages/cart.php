@@ -27,7 +27,7 @@ if (!isset($_SESSION['user_id']) || (isset($_SESSION['is_admin']) && $_SESSION['
 include '../includes/header.php';
 
 // Get the cart items for the logged in user from the database  
-$user_id = $_SESSION['user_id'];
+$user_id = (int)$_SESSION['user_id']; // Cast to integer for security
 $cart_query = "SELECT c.*, p.name, p.price, p.image_path 
                FROM cart c 
                JOIN products p ON c.product_ID = p.product_ID 
@@ -51,36 +51,36 @@ $total = 0;
         <?php else: ?>
             <div class="cart-items">
                 <?php foreach($cartItems as $item): 
-                // to show the total
                     $subtotal = $item['price'] * $item['quantity'];
                     $total += $subtotal;
+                    // Sanitize data
+                    $image_path = htmlspecialchars($item['image_path'], ENT_QUOTES, 'UTF-8');
+                    $name = htmlspecialchars($item['name'], ENT_QUOTES, 'UTF-8');
+                    $product_id = (int)$item['product_ID'];
+                    $price = number_format($item['price'], 2);
                 ?>
-                <!-- here we will show each item with image, name, quantity, price -->
                     <div class="cart-item">
-                        <img src="../<?php echo $item['image_path']; ?>" alt="<?php echo htmlspecialchars($item['name']); ?>" class="cart-item-image">
+                        <img src="../<?php echo $image_path; ?>" alt="<?php echo $name; ?>" class="cart-item-image">
                         <div class="cart-item-details">
-                            <h3><?php echo htmlspecialchars($item['name']); ?></h3>
-                            <p class="price"><?php echo number_format($item['price'], 2); ?> SR</p>
+                            <h3><?php echo $name; ?></h3>
+                            <p class="price"><?php echo $price; ?> SR</p>
                         </div>
-                <!-- This form to update the quantity of the item -->
-                <form action="../php_actions/update_cart.php" method="POST">
-                    <input type="hidden" name="product_id" value="<?php echo $item['product_ID']; ?>">
-                    <select name="quantity" onchange="this.form.submit()">
-                        <?php for($i = 1; $i <= 5; $i++): ?>
-                            <option value="<?php echo $i; ?>" <?php echo ($i == $item['quantity']) ? 'selected' : ''; ?>>
-                                <?php echo $i; ?>
-                            </option>
-                        <?php endfor; ?>
-                    </select>
-                </form>
-                <!-- This form to remove the item from the cart -->
+                        <form action="../php_actions/update_cart.php" method="POST">
+                            <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
+                            <select name="quantity" onchange="this.form.submit()">
+                                <?php for($i = 1; $i <= 5; $i++): ?>
+                                    <option value="<?php echo $i; ?>" <?php echo ($i == $item['quantity']) ? 'selected' : ''; ?>>
+                                        <?php echo $i; ?>
+                                    </option>
+                                <?php endfor; ?>
+                            </select>
+                        </form>
                         <form action="../php_actions/remove_cart.php" method="POST">
-                            <input type="hidden" name="product_id" value="<?php echo $item['product_ID']; ?>">
+                            <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
                             <button type="submit" class="remove-btn" onclick="return confirm('Remove this item?')">Remove</button>
                         </form>
                     </div>
                 <?php endforeach; ?>
-                <!-- here we will show the total -->
                 <div class="cart-summary">
                     <div class="subtotal">
                         <span>Total:</span>

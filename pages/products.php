@@ -10,11 +10,11 @@
 
     if ($product_result && $product_result->num_rows > 0):
         while ($product = $product_result->fetch_assoc()): 
-            $image_path = htmlspecialchars($product['image_path']);
-            $product_name = htmlspecialchars($product['name']);
+            // Sanitize all output data at once
+            $image_path = htmlspecialchars($product['image_path'], ENT_QUOTES, 'UTF-8');
+            $product_name = htmlspecialchars($product['name'], ENT_QUOTES, 'UTF-8');
             $product_price = number_format($product['price'], 2);
-            //for adding the product to the cart
-            $product_id = $product['product_ID'];
+            $product_id = (int)$product['product_ID'];  // Cast ID to integer for extra security
             ?>
             <div class="product-item">
                 <img src="../<?php echo $image_path; ?>" alt="<?php echo $product_name; ?>" class="product-image"/>
